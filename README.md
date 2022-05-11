@@ -17,6 +17,8 @@ This is a monorepo template for MERN websites. It uses a suite of useful tools f
 │   │   │   │                       #    (what you will serve to your users).
 │   │   │   ├── entry-server.tsx    # This is the entrypoint for SSR.
 │   │   │   └── vite-env.d.ts       # This is used to declare vite types.
+│   │   ├── .eslintrc.json          # This contains ESLint configs specific
+│   │   │                           #    to the client.
 │   │   ├── index.html              # This is your HTML root (you can customize it).
 │   │   ├── package.json
 │   │   ├── tsconfig.json           # This contains TypeScript configs specific
@@ -30,12 +32,19 @@ This is a monorepo template for MERN websites. It uses a suite of useful tools f
 │       │   ├── index.ts            # This is the entrypoint for the Express server.
 │       │   └── registerClient.ts   # This is used to register client the ssr logic
 │       │                           #    for the client.
+│       ├── .eslintrc.json          # This contains ESLint configs specific
+│       │                           #    to the server.
 │       ├── package.json
 │       └── tsconfig.json           # This contains TypeScript configs specific
 │                                   #    to the server.
 ├── .commitizenrc.json              # This is the config file for Commitizen.
 │                                   #    (see the `Tools` section for more info).
 ├── .commitlintrc.js                # This is the config file for Commitlint.
+│                                   #    (see the `Tools` section for more info).
+├── .eslintrc.cli.json              # This is the config file for ESLint specific
+│                                   #    to the CLI. (see the `Tools` section
+│                                   #    for more info).
+├── .eslintrc.json                  # This is the config file for ESLint.
 │                                   #    (see the `Tools` section for more info).
 ├── .gitignore
 ├── .prettierrc.json                # This is the config file for Prettier.
@@ -79,6 +88,12 @@ This will remove all build outputs.
 
 > This is equal to running `yarn clean:client` & `yarn clean:server`.
 
+### `yarn lint`
+
+This will lint all source files using ESLint.
+
+> This is equal to running `yarn lint:client` & `yarn lint:server`.
+
 ### `yarn commit` or `git cz`
 
 This will start the [Commitizen CLI](https://github.com/commitizen/cz-cli).
@@ -90,6 +105,7 @@ This is a helper for authoring commits following the conventions set by commitli
 - [Yarn Workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/): for splitting the backend and the frontend, while being able to share code between them (e.g. interfaces for the API).
 - [TypeScript](https://www.typescriptlang.org/): for strong typing, and by extension, safer code at scale.
 - [Husky](https://typicode.github.io/husky/): this is used for linting files before commit and enforcing commitlint conventions
-- [Prettier](https://prettier.io): for consistent formating of source files.
+- [Prettier](https://prettier.io/): for consistent formating of source files.
+- [ESLint](https://eslint.org/): for applying linting rules to every source files.
 - [Commitlint](https://commitlint.js.org/): for enforcing commit conventions.
 - [Commitizen CLI](https://github.com/commitizen/cz-cli): for authoring commits following the conventions set by commitlint.
