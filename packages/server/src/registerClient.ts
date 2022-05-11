@@ -1,11 +1,13 @@
-import type { Express, Response } from 'express';
-import path from 'path';
 import fs from 'fs';
-import resolvePkg from 'resolve-package-path';
-import { createServer, ViteDevServer } from 'vite';
-import express from 'express';
+import path from 'path';
 
-const renderIndex = async (
+import type { Express, Response } from 'express';
+import express from 'express';
+import resolvePkg from 'resolve-package-path';
+import type { ViteDevServer } from 'vite';
+import { createServer } from 'vite';
+
+const renderIndex = (
   res: Response,
   url: string,
   template: string,
@@ -21,9 +23,11 @@ const renderIndex = async (
 
     res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
   } catch (e: any) {
-    errCb && errCb(e);
-    console.log(e.stack);
-    res.status(500).end(e.stack);
+    if (e instanceof Error) {
+      errCb && errCb(e);
+      console.log(e.stack);
+      res.status(500).end(e.stack);
+    }
   }
 };
 
@@ -57,19 +61,21 @@ export const registerClient = async (app: Express) => {
       let template = fs.readFileSync(resolve('index.html'), 'utf-8');
       template = await vite.transformIndexHtml(url, template);
 
-      const render = (await vite.ssrLoadModule('/src/entry-server.tsx')).render;
+      const render = (await vite.ssrLoadModule('/src/entry-server.tsx'))
+        .render as (url: string) => string;
 
-      await renderIndex(res, url, template, render, (e) => {
+      renderIndex(res, url, template, render, (e: Error) => {
         vite.ssrFixStacktrace(e);
       });
     });
   } else {
     app.use(express.static(resolve('dist/ssr-client'), { index: false }));
 
+    // eslint-disable-next-line import/no-unresolved
     const render = (await import('client/dist/ssr/entry-server.js')).render;
 
-    app.use('*', async (req, res) => {
-      await renderIndex(res, req.originalUrl, prodTemplate, render);
+    app.use('*', (req, res) => {
+      renderIndex(res, req.originalUrl, prodTemplate, render);
     });
   }
 };

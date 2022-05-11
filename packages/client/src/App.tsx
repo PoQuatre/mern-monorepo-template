@@ -6,7 +6,8 @@ export const App = () => {
   useEffect(() => {
     fetch('/api/hello')
       .then((res) => res.text())
-      .then((res) => setResponse(res));
+      .then((res) => setResponse(res))
+      .catch((err) => console.error(err));
   }, []);
 
   return (

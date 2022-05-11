@@ -1,6 +1,7 @@
+import compression from 'compression';
 import express from 'express';
 import morgan from 'morgan';
-import compression from 'compression';
+
 import { registerClient } from 'registerClient';
 
 const app = express();
@@ -15,7 +16,7 @@ app.get('/api/hello', (req, res) => {
   res.send('Hello from the server!');
 });
 
-registerClient(app); // Keep this line after all your routes
+void registerClient(app); // Keep this line after all your routes
 
 const PORT = parseInt(process.env.PORT || '') || 8080;
 app.listen(PORT, () => {
