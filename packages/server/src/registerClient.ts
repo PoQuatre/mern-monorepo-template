@@ -27,6 +27,8 @@ const renderIndex = (
       errCb && errCb(e);
       console.log(e.stack);
       res.status(500).end(e.stack);
+    } else {
+      res.status(500).send('An error occurred while processing your request');
     }
   }
 };
