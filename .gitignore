@@ -17,3 +17,4 @@ dist/
 
 # Caches
 .eslintcache
+.stylelintcache

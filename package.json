@@ -17,13 +17,14 @@
     "clean": "concurrently --kill-others-on-fail -n client,server -c blue,yellow \"yarn clean:client\" \"yarn clean:server\"",
     "clean:client": "yarn workspace client clean",
     "clean:server": "yarn workspace server clean",
-    "lint": "concurrently -n client,server -c blue,yellow \"yarn lint:client\" \"yarn lint:server\"",
+    "lint": "concurrently -g -n client,server -c blue,yellow \"yarn lint:client\" \"yarn lint:server\"",
     "lint:client": "yarn workspace client lint",
     "lint:server": "yarn workspace server lint",
     "commit": "git-cz",
     "prepare": "husky install"
   },
   "lint-staged": {
+    "*.css": "stylelint --cache --fix",
     "*.{ts,tsx}": "eslint --cache --fix",
     "*.{ts,tsx,json,html,md,svg,yml}": "prettier --write"
   },
@@ -54,6 +55,11 @@
     "husky": "^8.0.0",
     "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "stylelint": "^14.8.2",
+    "stylelint-config-idiomatic-order": "^8.1.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-prettier": "^2.0.0"
   }
 }

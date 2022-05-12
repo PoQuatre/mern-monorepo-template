@@ -8,7 +8,9 @@
     "build:ssr-client": "vite build --outDir dist/ssr-client",
     "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist/ssr",
     "clean": "rimraf ./dist",
-    "lint": "eslint -c ../../.eslintrc.cli.json \"src/**/*.{ts,tsx}\""
+    "lint": "concurrently -g -n eslint,stylelint -c magenta,green \"yarn lint:eslint\" \"yarn lint:stylelint\"",
+    "lint:eslint": "eslint -c ../../.eslintrc.cli.json \"src/**/*.{ts,tsx}\"",
+    "lint:stylelint": "stylelint --aei \"src/**/*.css\""
   },
   "dependencies": {
     "react": "^18.0.0",
@@ -26,6 +28,7 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
     "rimraf": "^3.0.2",
+    "stylelint": "^14.8.2",
     "typescript": "^4.6.3",
     "vite": "^2.9.7"
   }
