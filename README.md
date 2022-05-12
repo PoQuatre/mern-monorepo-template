@@ -49,6 +49,8 @@ This is a monorepo template for MERN websites. It uses a suite of useful tools f
 ├── .gitignore
 ├── .prettierrc.json                # This is the config file for Prettier.
 │                                   #    (see the `Tools` section for more info).
+├── .stylelint.json                 # This is the config file for Stylelint.
+│                                   #    (see the `Tools` section for more info).
 ├── LICENSE
 ├── package.json
 ├── README.md                       # <--- You are here !
@@ -90,7 +92,7 @@ This will remove all build outputs.
 
 ### `yarn lint`
 
-This will lint all source files using ESLint.
+This will lint all source files using the configured linters (namely [ESLint](https://eslint.org/) & [Stylelint](https://stylelint.io/)).
 
 > This is equal to running `yarn lint:client` & `yarn lint:server`.
 
@@ -105,7 +107,8 @@ This is a helper for authoring commits following the conventions set by commitli
 - [Yarn Workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/): for splitting the backend and the frontend, while being able to share code between them (e.g. interfaces for the API).
 - [TypeScript](https://www.typescriptlang.org/): for strong typing, and by extension, safer code at scale.
 - [Husky](https://typicode.github.io/husky/): this is used for linting files before commit and enforcing commitlint conventions
-- [Prettier](https://prettier.io/): for consistent formating of source files.
-- [ESLint](https://eslint.org/): for applying linting rules to every source files.
+- [Prettier](https://prettier.io/): for consistent formating of every source files.
+- [ESLint](https://eslint.org/): for applying linting rules to TS source files.
+- [Stylelint](https://stylelint.io/): for applying linting rules and conventions to CSS files.
 - [Commitlint](https://commitlint.js.org/): for enforcing commit conventions.
 - [Commitizen CLI](https://github.com/commitizen/cz-cli): for authoring commits following the conventions set by commitlint.
