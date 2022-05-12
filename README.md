@@ -102,6 +102,18 @@ This will lint and try to fix all source files using the configured linters (nam
 
 > This is equal to running `yarn lint:fix:client` & `yarn lint:fix:server`.
 
+### `yarn format`
+
+This will check the formatting of all source files using [Prettier](https://prettier.io/).
+
+> This is equal to running `yarn format:client` & `yarn format:server`.
+
+### `yarn format:fix`
+
+This will format all source files using [Prettier](https://prettier.io/).
+
+> This is equal to running `yarn format:fix:client` & `yarn format:fix:server`.
+
 ### `yarn commit` or `git cz`
 
 This will start the [Commitizen CLI](https://github.com/commitizen/cz-cli).
@@ -113,7 +125,7 @@ This is a helper for authoring commits following the conventions set by commitli
 - [Yarn Workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/): for splitting the backend and the frontend, while being able to share code between them (e.g. interfaces for the API).
 - [TypeScript](https://www.typescriptlang.org/): for strong typing, and by extension, safer code at scale.
 - [Husky](https://typicode.github.io/husky/): this is used for linting files before commit and enforcing commitlint conventions
-- [Prettier](https://prettier.io/): for consistent formating of every source files.
+- [Prettier](https://prettier.io/): for consistent formatting of every source files.
 - [ESLint](https://eslint.org/): for applying linting rules to TS source files.
 - [Stylelint](https://stylelint.io/): for applying linting rules and conventions to CSS files.
 - [Commitlint](https://commitlint.js.org/): for enforcing commit conventions.
