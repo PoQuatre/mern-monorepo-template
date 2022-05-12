@@ -20,6 +20,9 @@
     "lint": "concurrently -g -n client,server -c blue,yellow \"yarn lint:client\" \"yarn lint:server\"",
     "lint:client": "yarn workspace client lint",
     "lint:server": "yarn workspace server lint",
+    "lint:fix": "concurrently -g -n client,server -c blue,yellow \"yarn lint:fix:client\" \"yarn lint:fix:server\"",
+    "lint:fix:client": "yarn workspace client lint:fix",
+    "lint:fix:server": "yarn workspace server lint:fix",
     "commit": "git-cz",
     "prepare": "husky install"
   },

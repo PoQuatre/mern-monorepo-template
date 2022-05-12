@@ -10,7 +10,8 @@
     "build": "tsc && tsc-alias -f",
     "start": "cross-env NODE_ENV=production node ./dist/index.js",
     "clean": "rimraf ./dist",
-    "lint": "eslint -c ../../.eslintrc.cli.json \"src/**/*.ts\""
+    "lint": "eslint -c ../../.eslintrc.cli.json \"src/**/*.ts\"",
+    "lint:fix": "eslint -c ../../.eslintrc.cli.json \"src/**/*.ts\" --fix"
   },
   "dependencies": {
     "compression": "^1.7.4",

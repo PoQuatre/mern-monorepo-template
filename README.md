@@ -96,6 +96,12 @@ This will lint all source files using the configured linters (namely [ESLint](ht
 
 > This is equal to running `yarn lint:client` & `yarn lint:server`.
 
+### `yarn lint:fix`
+
+This will lint and try to fix all source files using the configured linters (namely [ESLint](https://eslint.org/) & [Stylelint](https://stylelint.io/)).
+
+> This is equal to running `yarn lint:fix:client` & `yarn lint:fix:server`.
+
 ### `yarn commit` or `git cz`
 
 This will start the [Commitizen CLI](https://github.com/commitizen/cz-cli).

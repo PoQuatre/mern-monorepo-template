@@ -10,7 +10,10 @@
     "clean": "rimraf ./dist",
     "lint": "concurrently -g -n eslint,stylelint -c magenta,green \"yarn lint:eslint\" \"yarn lint:stylelint\"",
     "lint:eslint": "eslint -c ../../.eslintrc.cli.json \"src/**/*.{ts,tsx}\"",
-    "lint:stylelint": "stylelint --aei \"src/**/*.css\""
+    "lint:stylelint": "stylelint --aei \"src/**/*.css\"",
+    "lint:fix": "concurrently -g -n eslint,stylelint -c magenta,green \"yarn lint:fix:eslint\" \"yarn lint:fix:stylelint\"",
+    "lint:fix:eslint": "eslint -c ../../.eslintrc.cli.json \"src/**/*.{ts,tsx}\" --fix",
+    "lint:fix:stylelint": "stylelint --aei \"src/**/*.css\" --fix"
   },
   "dependencies": {
     "react": "^18.0.0",
