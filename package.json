@@ -29,6 +29,9 @@
     "format:fix": "concurrently -g -n client,server -c blue,yellow \"yarn format:fix:client\" \"yarn format:fix:server\"",
     "format:fix:client": "yarn workspace client format:fix",
     "format:fix:server": "yarn workspace server format:fix",
+    "typecheck": "concurrently -g -n client,server -c blue,yellow \"yarn typecheck:client\" \"yarn typecheck:server\"",
+    "typecheck:client": "yarn workspace client typecheck",
+    "typecheck:server": "yarn workspace server typecheck",
     "commit": "git-cz",
     "prepare": "husky install"
   },

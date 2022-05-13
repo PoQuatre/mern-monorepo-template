@@ -13,7 +13,8 @@
     "lint": "eslint -c ../../.eslintrc.cli.json \"src/**/*.ts\"",
     "lint:fix": "eslint -c ../../.eslintrc.cli.json \"src/**/*.ts\" --fix",
     "format": "prettier -cu \"src/**/*\"",
-    "format:fix": "prettier -wu \"src/**/*\""
+    "format:fix": "prettier -wu \"src/**/*\"",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "compression": "^1.7.4",

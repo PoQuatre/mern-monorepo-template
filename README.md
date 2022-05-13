@@ -114,6 +114,12 @@ This will format all source files using [Prettier](https://prettier.io/).
 
 > This is equal to running `yarn format:fix:client` & `yarn format:fix:server`.
 
+### `yarn typecheck`
+
+This will run the [TypeScript](https://www.typescriptlang.org/) compiler to check for typing errors.
+
+> This is equal to running `yarn typecheck:client` & `yarn typecheck:server`.
+
 ### `yarn commit` or `git cz`
 
 This will start the [Commitizen CLI](https://github.com/commitizen/cz-cli).
