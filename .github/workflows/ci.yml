@@ -57,7 +57,7 @@ jobs:
       - name: Install Dependencies 📦
         run: yarn install
 
-      - name: Run ESLint 🚦
+      - name: Run Linters 🚦
         run: yarn lint
 
   format:
