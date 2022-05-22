@@ -1,19 +1,20 @@
-import { useEffect, useState } from 'react';
+import type { FC, ReactNode } from 'react';
+import { StrictMode } from 'react';
 
-export const App = () => {
-  const [response, setResponse] = useState('');
+import type { PageContext } from 'hooks/usePageContext';
+import { PageContextProvider } from 'hooks/usePageContext';
 
-  useEffect(() => {
-    fetch('/api/hello')
-      .then((res) => res.text())
-      .then((res) => setResponse(res))
-      .catch((err) => console.error(err));
-  }, []);
+interface Props {
+  children: ReactNode;
+  pageContext: PageContext;
+}
 
+export const App: FC<Props> = ({ children, pageContext }) => {
   return (
-    <>
-      <p>Hello from the client!</p>
-      {response && <p>{response}</p>}
-    </>
+    <StrictMode>
+      <PageContextProvider pageContext={pageContext}>
+        {children}
+      </PageContextProvider>
+    </StrictMode>
   );
 };

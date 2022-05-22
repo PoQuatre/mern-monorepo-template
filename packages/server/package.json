@@ -22,7 +22,8 @@
     "express": "^4.18.1",
     "morgan": "^1.10.0",
     "resolve-package-path": "^4.0.3",
-    "vite": "^2.9.8"
+    "vite": "^2.9.8",
+    "vite-plugin-ssr": "^0.3.64"
   },
   "devDependencies": {
     "@types/compression": "^1.7.2",

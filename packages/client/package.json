@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "build": "concurrently --kill-others-on-fail -n ssr-client,ssr -c magenta,green \"yarn build:ssr-client\" \"yarn build:ssr\"",
-    "build:ssr-client": "vite build --outDir dist/ssr-client",
-    "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist/ssr",
+    "build:ssr-client": "vite build",
+    "build:ssr": "vite build --ssr",
     "clean": "rimraf ./dist",
     "lint": "concurrently -g -n eslint,stylelint -c magenta,green \"yarn lint:eslint\" \"yarn lint:stylelint\"",
     "lint:eslint": "eslint -c ../../.eslintrc.cli.json \"src/**/*.{ts,tsx}\"",
@@ -19,6 +19,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "cross-fetch": "^3.1.5",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0"
@@ -37,6 +38,8 @@
     "rimraf": "^3.0.2",
     "stylelint": "^14.8.2",
     "typescript": "^4.6.3",
-    "vite": "^2.9.7"
+    "vite": "^2.9.7",
+    "vite-plugin-ssr": "^0.3.64",
+    "vite-tsconfig-paths": "^3.4.1"
   }
 }
